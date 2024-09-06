@@ -4,6 +4,9 @@
 #include <iostream>
 using namespace std;
 
+void errorCheck(int parties){
+        return;
+    }
 //A customized main() structure is used to enable system halts.
 int main(int nNumberofArgs, char* pszArgs[]){
     int parties;
@@ -12,6 +15,7 @@ int main(int nNumberofArgs, char* pszArgs[]){
     int Min;
     cout << "Please input the # of Pizza Parties that you wish to test against (Higher # = more accurate): ";
     cin >> parties;
+    errorCheck(parties);
     cout << "\nPlease input the Maximum # of expected attendees: ";
     cin >> Max;
     cout << "\nPlease input the Minimum # of expected attendees: ";
