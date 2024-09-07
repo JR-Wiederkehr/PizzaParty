@@ -4,23 +4,69 @@
 #include <iostream>
 using namespace std;
 
-void errorCheck(int parties){
-        return;
-    }
 //A customized main() structure is used to enable system halts.
 int main(int nNumberofArgs, char* pszArgs[]){
+    bool validInput = false;
     int parties;
     float sum;
     int Max;
     int Min;
-    cout << "Please input the # of Pizza Parties that you wish to test against (Higher # = more accurate): ";
-    cin >> parties;
-    errorCheck(parties);
-    cout << "\nPlease input the Maximum # of expected attendees: ";
-    cin >> Max;
-    cout << "\nPlease input the Minimum # of expected attendees: ";
-    cin >> Min;
-    cout <<"\n";
+
+    while(!validInput){
+        cout << "Please input the # of Pizza Parties that you wish to test against (Higher # = more accurate): ";
+        cin >> parties;
+
+        if (cin.fail()) {
+            cout << "Invalid input! Expected an number! \n";
+            // Clear the failbit and ignore the remaining
+            // input
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),
+                       '\n');
+        }
+        else{
+            validInput = true;
+        }
+    }
+    validInput = false;
+
+    while(!validInput){
+        cout << "\nPlease input the Maximum # of expected attendees: ";
+        cin >> Max;
+
+        if (cin.fail()) {
+            cout << "Invalid input! Expected an number! \n";
+            // Clear the failbit and ignore the remaining
+            // input
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),
+                       '\n');
+        }
+        else{
+            validInput = true;
+        }
+    }
+    validInput = false;
+
+    while(!validInput){
+        cout << "\nPlease input the Minimum # of expected attendees: ";
+        cin >> Min;
+        cout <<"\n";
+
+        if (cin.fail()) {
+            cout << "Invalid input! Expected an number! \n";
+            // Clear the failbit and ignore the remaining
+            // input
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),
+                       '\n');
+        }
+        else{
+            validInput = true;
+        }
+    }
+        validInput = false;
+
 
     int attendees[parties + 1];
     srand(time(NULL));
